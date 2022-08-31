@@ -52,6 +52,16 @@ const TodoItems = () => {
     }
   };
 
+  const trim = ((e)=>{
+
+    const targetValue = e.target.value;
+    if (targetValue.replace(/\s/g, "").length <=0){
+    alert("White Spaces Not Allowed");
+    return false;
+}    
+    setInputData(targetValue);
+  })
+
   // handle checkbox
   const handleCheckbox=(ID)=>{
     let todoArray=[];
@@ -118,7 +128,8 @@ const TodoItems = () => {
               onKeyDown={inputKeyDown}
               placeholder="Enter Your List...."
               value={inputData}
-              onChange={(e) => setInputData(e.target.value)}
+              onChange={trim}
+              //onChange={(e) => setInputData(e.target.value)}
             />
             {toggleSubmit ? (
               <button id="new-task-submit" onClick={addItem}>
