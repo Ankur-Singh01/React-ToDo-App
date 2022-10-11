@@ -23,6 +23,7 @@ const TodoItems = () => {
     if (event.keyCode === 13) addItem();
 };
 
+
   const addItem = () => {
     if (!inputData) {
       alert("Please Enter Some Data");
@@ -52,15 +53,23 @@ const TodoItems = () => {
     }
   };
 
-  const trim = ((e)=>{
+//   const trim = ((e)=>{
 
-    const targetValue = e.target.value;
-    if (targetValue.replace(/\s/g, "").length <=0){
-    alert("White Spaces Not Allowed");
-    return false;
-}    
-    setInputData(targetValue);
-  })
+//     const targetValue = e.target.value;
+//     if (targetValue.replace(/\s/g, "").length <=0){
+//     alert("White Spaces Not Allowed");
+//     return false;
+// }    
+//     setInputData(targetValue);
+//   })
+
+
+// const trim = ((e)=>{
+
+//     e.target.value = e.target.value.trim();
+//     setInputData(e.target.value);
+//   })
+
 
   // handle checkbox
   const handleCheckbox=(ID)=>{
@@ -128,8 +137,8 @@ const TodoItems = () => {
               onKeyDown={inputKeyDown}
               placeholder="Enter Your List...."
               value={inputData}
-              onChange={trim}
-              //onChange={(e) => setInputData(e.target.value)}
+              //onChange={trim}
+              onChange={(e) => setInputData(e.target.value)}
             />
             {toggleSubmit ? (
               <button id="new-task-submit" onClick={addItem}>
